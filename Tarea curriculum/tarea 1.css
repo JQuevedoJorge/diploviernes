@@ -1,0 +1,31 @@
+h1 {
+  color: red;
+  background-color: green;
+  text-align: center;
+  font-size: 60px;
+}
+
+h4 {
+  color: blue;
+  font-size: 40px;
+  font-style: oblique;
+  line-height: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#caja {
+  color: black;
+  line-height: 30px;
+  background-color: sandybrown;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 5px solid brown;
+  text-align: center;
+}
+
+.destacado {
+  color: blue;
+  font-size: 35px;
+}
