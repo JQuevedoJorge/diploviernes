@@ -1,8 +1,12 @@
+
+/*font-family: 'Borel', cursive;*/
+
 h1 {
   color: red;
   background-color: green;
   text-align: center;
   font-size: 60px;
+  font-family: 'Borel', cursive;
 }
 
 h4 {
@@ -28,4 +32,8 @@ h4 {
 .destacado {
   color: blue;
   font-size: 35px;
+  background-color: yellowgreen;
+  column-count: 2;
+  column-rule: 3px solid black;
+  border: 5px solid  black;
 }
