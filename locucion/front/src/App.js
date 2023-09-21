@@ -10,7 +10,7 @@ import Footer from "./components/layout/Footer";
 import ContactoPage from './pages/ContactoPage';
 import HomePage from './pages/HomePage';
 import NosotrosPage from './pages/NosotrosPage';
-import NovedadesPage from './pages/NosotrosPage';
+import NovedadesPage from './pages/NovedadesPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
