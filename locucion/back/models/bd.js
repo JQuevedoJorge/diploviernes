@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+const { rootCertificates } = require('tls');
 var util = require ('util');
 
 var pool = mysql.createPool({
@@ -8,6 +9,11 @@ var pool = mysql.createPool({
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DB_NAME
 });
+
+// MYSQL_HOST = localhost
+// MYSQL_DB_NAME = locuciondiplo
+// MYSQL_USER = root
+// MYSQL_PASSWORD = 
 
 pool.query =util.promisify(pool.query);
 module.exports=pool;
