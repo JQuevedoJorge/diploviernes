@@ -17,16 +17,12 @@ router.get('/', async function (req, res, next){
 // diseño del form de agregar
 router.get('/agregar', (req, res, next) =>{
     res.render('admin/agregar', {
-        layout: 'admin/layout '
-    })
-})
+        layout: 'admin/layout'
+    });
+});
 
 router.post('/agregar', async (req, res, next) => {
-    try {
-
-        console.log(req.body)
-
-        
+    try {        
         if (req.body.titulo != '' && req.body.subtitulo != '' && req.body.cuerpo != '') {
             await novedadesModel.insertNovedad(req.body);
             res.redirect('/admin/novedades')
@@ -47,5 +43,51 @@ router.post('/agregar', async (req, res, next) => {
     }
 })
 
+
+// para eliminar una novedad
+
+router.get('/eliminar/:id', async (req, res, next) =>{
+    var id = req.params.id;
+    await novedadesModel.deleteNovedadesById(id);
+    res.redirect('/admin/novedades');
+}) 
+// cierra el eliminar 
+
+// ahora para mostrar el formulario y mostrar una sola novedad
+
+router.get('modificar/:id', async (req, res, next)=> {
+    var id = req.params.id;
+    // console.log(req.params.id);
+    var novedad = await novedadesModel.getNovedadById(id);
+
+       res.render('admin/modificar', {
+        layout: 'admin/layout',
+        novedad
+    })
+})
+
+// modifica novedad
+
+router.post('/modificar', async (req,res,next) =>{
+    try{
+        var obj = {
+            titulo: req.body.titulo,
+            subtitulo: req.body.subtitulo,
+            cuerpo: req.body.cuerpo
+        }
+
+        await novedadesModel.modificarNovedadById(obj, req.body.id);
+        res.redirect('/admin/novedades');
+
+    }catch (error){
+        console.log(error)
+        res.render('admin/modificar', {
+            layout: 'admin/layout',
+            error: true,
+            message: 'No se modifico la novedad'
+        })
+    }
+})
+ 
 
 module.exports = router;
